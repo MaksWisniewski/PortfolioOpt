@@ -12,7 +12,8 @@
 
 
 ## TO DO:
-- zmienić funkcje ryzyka (semiwariancja)
-- mądrzejsze operatory ewolucyjne
-- optymalizacja hiperparametrów
-- inny algorytm (MOEA/D)
+
+- [x] zmienić funkcje ryzyka (semiwariancja)
+- [ ] mądrzejsze operatory ewolucyjne
+- [ ] optymalizacja hiperparametrów
+- [ ] inny algorytm (MOEA/D)
