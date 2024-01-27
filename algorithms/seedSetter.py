@@ -1,4 +1,4 @@
-import random 
+import numpy as np
 
 
 class SeedSetter:
@@ -6,5 +6,5 @@ class SeedSetter:
         self.func = func
 
     def __call__(self, *args, **kwargs):
-        random.seed(10)
+        np.random.seed(10)
         return self.func(*args, **kwargs)
