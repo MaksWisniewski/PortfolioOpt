@@ -1,4 +1,5 @@
 import numpy as np
+import time
 from functools import cmp_to_key
 from tqdm import trange
 
@@ -76,6 +77,7 @@ def nsga2(objective_function,
           population_size=100,
           number_of_offspring=200,
           number_of_iterations=100,
+          max_time=np.inf, # in seconds
           crossover_probability = 0.95,
           mutation_probability = 0.25,
           crossover_operator=single_point_crossover,
@@ -91,7 +93,13 @@ def nsga2(objective_function,
     # evaluate initial population
     population_values = objective_function(population)
 
+    end_time = time.time() + max_time
+
     for i in trange(number_of_iterations, desc='NSGA-II'):
+        if time.time() >= end_time:
+            print('NSGA-II: exceeded maximum execution time!')
+            break
+
         # rank population (first - best, last - worst)
         population_ranking_idx = rank_population(population_values)
 

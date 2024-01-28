@@ -1,4 +1,5 @@
 import numpy as np
+import time
 from tqdm import trange
 from .evolutionary_operators import *
 from ..seedSetter import SeedSetter
@@ -22,6 +23,7 @@ def default_weight_vectors(N):
 def moead(objective_function,
           chromosome_length=20,
           number_of_iterations=200,
+          max_time=np.inf, # in seconds
           weight_vectors=default_weight_vectors(100),
           neighborhood_size=20,
           mutation_probability=0.2,
@@ -54,7 +56,13 @@ def moead(objective_function,
         return np.max(weight_vector * np.abs(f_value - ref_point))
 
     # main loop
+    end_time = time.time() + max_time
+
     for _ in trange(number_of_iterations, desc='MOEA/D'):
+        if time.time() >= end_time:
+            print('MOEAD: exceeded maximum execution time!')
+            break
+
         for i in range(number_of_subproblems):
             # select parents
             k,l = np.random.choice(neighborhoods[i], size=2, replace=False)
