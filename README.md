@@ -14,7 +14,6 @@
 ## TO DO:
 
 - [x] zmienić funkcje ryzyka (semiwariancja)
-- [ ] mądrzejsze operatory ewolucyjne
+- [ ] mądrzejsze operatory ewolucyjne (może jakiś local search?)
 - [ ] optymalizacja hiperparametrów
 - [x] inny algorytm (MOEA/D)
-- [ ] inna inicjalizacjia reference point + operatory dla MOEA/D
