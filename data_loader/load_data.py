@@ -2,14 +2,13 @@ import pandas as pd
 import zipfile
 
 
-STOCK_QUOTATIONS_ARCHIVE_FILE_NAME = 'mstall.zip'
-STOCK_NAMES_FILE_NAME = 'WIG20.txt'
-
-with open(STOCK_NAMES_FILE_NAME) as f:
-    _stock_names = list(map(lambda line: line.strip(), f))
+STOCK_QUOTATIONS_ARCHIVE_FILE_NAME = 'data/mstall.zip'
+STOCK_NAMES_FILE_NAME = 'data/WIG20.txt'
 
 
-def load_stock_quotations(stock_names=_stock_names, filename=STOCK_QUOTATIONS_ARCHIVE_FILE_NAME):
+def load_stock_quotations(stock_names_file=STOCK_NAMES_FILE_NAME, filename=STOCK_QUOTATIONS_ARCHIVE_FILE_NAME):
+    with open(stock_names_file) as f:
+        stock_names = list(map(lambda line: line.strip(), f))
     s = {}
     with zipfile.ZipFile(filename) as z:
         for stock_name in stock_names:
