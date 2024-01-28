@@ -21,7 +21,7 @@ def default_weight_vectors(N):
 @SeedSetter
 def moead(objective_function,
           chromosome_length=20,
-          number_of_iterations=1000,
+          number_of_iterations=200,
           weight_vectors=default_weight_vectors(100),
           neighborhood_size=20,
           mutation_probability=0.2,
@@ -55,7 +55,7 @@ def moead(objective_function,
      def g(f_value, weight_vector, ref_point):
           return np.max(weight_vector * np.abs(f_value - ref_point))
 
-     for _ in trange(number_of_iterations):
+     for _ in trange(number_of_iterations, desc='MOEA/D'):
           for i in range(number_of_subproblems):
                if normalize:
                     population_values /= (np.max(population_values, axis=0) - np.min(population_values, axis=0))

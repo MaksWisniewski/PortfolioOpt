@@ -91,7 +91,7 @@ def nsga2(objective_function,
     # evaluate initial population
     population_values = objective_function(population)
 
-    for i in trange(number_of_iterations):
+    for i in trange(number_of_iterations, desc='NSGA-II'):
         # rank population (first - best, last - worst)
         population_ranking_idx = rank_population(population_values)
 
