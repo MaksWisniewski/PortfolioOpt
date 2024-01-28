@@ -16,4 +16,5 @@
 - [x] zmienić funkcje ryzyka (semiwariancja)
 - [ ] mądrzejsze operatory ewolucyjne
 - [ ] optymalizacja hiperparametrów
-- [ ] inny algorytm (MOEA/D)
+- [x] inny algorytm (MOEA/D)
+- [ ] inna inicjalizacjia reference point + operatory dla MOEA/D
