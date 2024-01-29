@@ -10,3 +10,4 @@
 - [Large-Scale Portfolio Optimization Using Multiobjective
 Evolutionary Algorithms and Preselection Methods](https://downloads.hindawi.com/journals/mpe/2017/4197914.pdf?_gl=1*1t4ht29*_ga*NDk5MjczMjU1LjE3MDMxMTI2ODU.*_ga_NF5QFMJT5V*MTcwNjM2OTIxOC4xNC4xLjE3MDYzNjkyNzguNjAuMC4w)
 - [MOEA/D: A Multiobjective Evolutionary Algorithm Based on Decomposition](https://www.researchgate.net/publication/3418989_MOEAD_A_Multiobjective_Evolutionary_Algorithm_Based_on_Decomposition)
+- [opis] (https://ethz.ch/content/dam/ethz/special-interest/mtec/chair-of-entrepreneurial-risks-dam/documents/dissertation/master%20thesis/RoudierMScThesis.pdf)
