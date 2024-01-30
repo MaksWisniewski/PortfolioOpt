@@ -1,22 +1,12 @@
 import numpy as np
 
 
-def semi_covariance(X, Y):
-    N = len(X)
-    XX, YY = X - X.mean(), Y - Y.mean()
-    XX[XX > 0] = 0
-    YY[YY > 0] = 0
-    return np.sum(XX * YY) / N
-
-
 def semi_variance(X):
-    return semi_covariance(X,X)
+    '''X is 2-dimensional array,
+    this function returns 1-dimensional array
+    containing semi-variances of each row of X'''
 
-
-def semi_covariance_matrix(X):
-    N,M = X.shape
-    result = np.empty((M,M))
-    for i in range(M):
-        for j in range(M):
-            result[i,j] = semi_covariance(X[:,i], X[:,j])
-    return result
+    X_mean = X.mean(axis=1).reshape(-1,1)
+    X_diff = X - X_mean
+    X_diff[X > X_mean] = 0
+    return np.sum(X_diff**2, axis=1)
