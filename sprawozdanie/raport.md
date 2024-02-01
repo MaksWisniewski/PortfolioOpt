@@ -194,3 +194,11 @@ nsga2_kwargs={'population_size': 500,
 ## Wnioski
 
 Wyniki otrzymane przez rozważane algorytmy są porównywalne pod względem wartości funkcji celu. Rozwiązanie znalezione przez MOEA/D zawiera jednak więcej punktów, w związku z czym daje bardziej spójne przybliżenie prawdziwego frontu Pareto.
+
+## Bibliografia
+- [PORTFOLIO OPTIMIZATION USING EVOLUTIONARY ALGORITHM](https://run.unl.pt/bitstream/10362/119447/1/TAA0094.pdf)
+- [A heuristic crossover for portfolio selection](https://www.researchgate.net/publication/286952225_A_heuristic_crossover_for_portfolio_selection)
+- [Large-Scale Portfolio Optimization Using Multiobjective
+Evolutionary Algorithms and Preselection Methods](https://downloads.hindawi.com/journals/mpe/2017/4197914.pdf?_gl=1*1t4ht29*_ga*NDk5MjczMjU1LjE3MDMxMTI2ODU.*_ga_NF5QFMJT5V*MTcwNjM2OTIxOC4xNC4xLjE3MDYzNjkyNzguNjAuMC4w)
+- [MOEA/D: A Multiobjective Evolutionary Algorithm Based on Decomposition](https://www.researchgate.net/publication/3418989_MOEAD_A_Multiobjective_Evolutionary_Algorithm_Based_on_Decomposition)
+- [Portfolio Optimization and Genetic Algorithms](https://ethz.ch/content/dam/ethz/special-interest/mtec/chair-of-entrepreneurial-risks-dam/documents/dissertation/master%20thesis/RoudierMScThesis.pdf)
