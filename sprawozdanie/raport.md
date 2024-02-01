@@ -1,7 +1,3 @@
----
-geometry: "left = 1cm, right=1cm"
----
-
 # Optymalizacja Portfela
 
 ## Opis projektu
@@ -41,6 +37,8 @@ Semiwariancję wektora $\displaystyle X \in \mathbb{R}^d$ definiujemy jako $\fra
     Wybieramy losowo dwie pozycje $i,j$ oraz pewne zaburzenie $\delta$.
     Z osobnika $x$ generujemy $x^\prime$, gdzie $x_i^\prime = x_i + \delta$, $x_j^\prime = x_j - \delta$.
 
+$~$
+
 - `swap_mutation`
 
     Zamieniamy miejscami dwie losowo wybrane pozycje.
@@ -51,7 +49,7 @@ Semiwariancję wektora $\displaystyle X \in \mathbb{R}^d$ definiujemy jako $\fra
 Algorytm ten opiera się na dekompozycji wielowymiarowej funkcji celu na kilka funkcji jednowymiarowych, które są równolegle optymalizowane.
 W tym celu dla równomiernie rozłożonych wektorów wagowych $\lambda^i$ definiujemy rodzinę funkcji
 
-$$g(x | \lambda, z) = \max_{1 \leq j \leq m}\{\lambda_j |f_j(x) - z_j |\}$$
+$$g(x | \lambda, z) = \max_{1 \leq j \leq m}\\{\lambda_j |f_j(x) - z_j |\\}$$
 
 
 gdzie $m$ to liczba kryteriów, $f_j$ to $j$-ta funkcja celu, $\lambda$ to wektor wagowy, $z$ to punkt referencyjny.
@@ -65,24 +63,24 @@ Celem algorytmu jest minimalizacja funkcji $g(x | \lambda^i, z)$ dla wszystkich 
 Oznaczenia:
 - $N$ - rozmiar populacji (liczba wektorów wagowych)
 - $T$ - rozmiar sąsiedztwa
-- $P$ = $\{\lambda^1, \lambda^2, \ldots, \lambda^N\}$ - zbiór wektorów wagowych.
+- $P$ = $\\{\lambda^1, \lambda^2, \ldots, \lambda^N\\}$ - zbiór wektorów wagowych.
 
-Algorytm będzie utrzymywał populację $X = \{x^1, x^2, \ldots, x^N\}$, gdzie $x^i$ to najlepsze znalezione rozwiązanie dla funkcji $g(x | \lambda^i, z)$, oraz zbiór punktów niezdominowanych $Y$.
+Algorytm będzie utrzymywał populację $X = \\{x^1, x^2, \ldots, x^N\\}$, gdzie $x^i$ to najlepsze znalezione rozwiązanie dla funkcji $g(x | \lambda^i, z)$, oraz zbiór punktów niezdominowanych $Y$.
 
 1. Inicjalizacja
     - $X \leftarrow$ losowa populacja
     - Obliczamy odległości pomiędzy wektorami wagowymi
-    - Dla $i \in \{1,2,\ldots,N\}$ wyznaczmy zbiory $B(i) = \{i_1, i_2, \ldots, i_T\}$, takie że $\lambda^{i_1}, \lambda^{i_2}, \ldots, \lambda^{i_T}$ stanowią $T$ najbliższych wektorów dla $\lambda_i$ (sąsiedztwo)
+    - Dla $i \in \\{1,2,\ldots,N\\}$ wyznaczmy zbiory $B(i) = \\{i_1, i_2, \ldots, i_T\\}$, takie że $\lambda^{i_1}, \lambda^{i_2}, \ldots, \lambda^{i_T}$ stanowią $T$ najbliższych wektorów dla $\lambda_i$ (sąsiedztwo)
     - $Y \leftarrow \emptyset$
     - inicjalizujemy $z$
 
 2. Aktualizacja populacji
-    - dla każdego $i \in \{1,2,\ldots,N\}$:
+    - dla każdego $i \in \\{1,2,\ldots,N\\}$:
         - wybieramy losowo $k,l \in B(i)$
         - generujemy osobnika $y$ z $x^k$ i $x^l$ za pomocą operatora krzyżowania
         - mutujemy $y$ (z pewnym prawdopodobieństwem)
         - dla każdego $j \in B(i)$ zastępujemy $x^j$ przez $y$ w populacji $X$, jeśli $g(y | \lambda^j, z) < g(x^j | \lambda^j, z)$
-        - jeśli $y$ nie jest dominowany przez żaden $x \in Y$, to $Y \leftarrow Y \cup \{y\}$
+        - jeśli $y$ nie jest dominowany przez żaden $x \in Y$, to $Y \leftarrow Y \cup \\{y\\}$
         - usuwamy z $Y$ wszelkie elementy zdominowane przez $y$
         - aktualizujemy $z$
 
@@ -127,6 +125,8 @@ Stąd macierz $R = XL^T$ ma na pozycji $R_{i,j}$ iloczyn skalarny $i$-tego wiers
 Tak więc $i$-ty wiersz macierzy $R$ zawiera stopy zwrotu całego $i$-tego portfela w kolejnych dniach. Zatem licząc semiwariancję każdego wiersza tej macierzy, otrzymujemy semiwariancję dla każdego portfela (osobnika w populacji $X$) - czyli jego funkcję ryzyka.
 
 Taki sposób liczenia semiwariancji umożliwia efektywną implementację z użyciem operacji macierzowych w bibliotece numpy.
+
+$~$
 
 ## Wyniki
 
